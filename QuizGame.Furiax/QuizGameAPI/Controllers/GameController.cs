@@ -34,12 +34,21 @@ namespace QuizGameAPI.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult<Game>> AddGame(Game model)
+        public async Task<ActionResult<Game>> AddGame(GameDTO modelDTO)
         {
-            _context.Games.Add(model);
+            if(modelDTO == null) return BadRequest("Game is empty");
+            var quiz = await _context.Quizzes.FindAsync(modelDTO.QuizId);
+            if (quiz == null) return BadRequest("quiz does not excist");
+
+            var game = new Game {
+                Score = modelDTO.Score,
+                QuizId = modelDTO.QuizId
+            };
+
+            _context.Games.Add(game);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetGame", new { id = model.GameId }, model);
+            return CreatedAtAction("GetGame", new { id = game.GameId }, game);
         }
         [HttpPut("{id}")]
         public async Task<IActionResult> EditGame(Guid id, Game model)

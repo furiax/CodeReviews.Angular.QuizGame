@@ -12,4 +12,10 @@ namespace QuizGameAPI.Models
         public Guid QuizId { get; set; }
         public Quiz Quiz { get; set; }
     }
+
+    public class GameDTO
+    {
+        public int Score { get; set; }
+        public Guid QuizId { get; set; }
+    }
 }
