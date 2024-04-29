@@ -10,6 +10,5 @@ namespace QuizGameAPI.Models
         public string QuizName { get; set;}
         public ICollection<Question> Questions { get; set; }
         public ICollection<Game> Games { get; set; }
-
     }
 }

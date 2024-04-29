@@ -32,12 +32,27 @@ namespace QuizGameAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Question>> AddQuestion(Question model)
+        public async Task<ActionResult<Question>> AddQuestion(QuestionDTO modelDTO)
         {
-            _context.Questions.Add(model);
+            if (modelDTO == null) return BadRequest("Question is empty");   
+            var quiz = await _context.Quizzes.FindAsync(modelDTO.QuizId);
+            if(quiz == null) return BadRequest("Quiz does not exist");
+
+            var question = new Question
+            {
+                QuestionToAsk = modelDTO.QuestionToAsk,
+                CorrectAnswer = modelDTO.CorrectAnswer,
+                Option1 = modelDTO.Option1,
+                Option2 = modelDTO.Option2,
+                Option3 = modelDTO.Option3,
+                Option4 = modelDTO.Option4,
+                QuizId = modelDTO.QuizId
+            };
+
+            _context.Questions.Add(question);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetQuestion", new { id = model.QuizId }, model);
+            return CreatedAtAction("GetQuestion", new { id = question.QuestionId }, question);
         }
         [HttpPut("{id}")]
         public async Task<IActionResult> EditQuestion(Guid id, Question model)

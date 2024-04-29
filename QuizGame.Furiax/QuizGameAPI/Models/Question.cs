@@ -20,4 +20,15 @@ namespace QuizGameAPI.Models
         public Guid QuizId { get; set; }
         public Quiz Quiz { get; set; }
     }
+
+    public class QuestionDTO
+    {
+        public string QuestionToAsk { get; set; }
+        public string CorrectAnswer { get; set; }
+        public string? Option1 { get; set; }
+        public string? Option2 { get; set; }
+        public string? Option3 { get; set; }
+        public string? Option4 { get; set; }
+        public Guid QuizId { get; set; }
+    }
 }
