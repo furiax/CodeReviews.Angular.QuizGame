@@ -51,14 +51,20 @@ namespace QuizGameAPI.Controllers
             return CreatedAtAction("GetGame", new { id = game.GameId }, game);
         }
         [HttpPut("{id}")]
-        public async Task<IActionResult> EditGame(Guid id, Game model)
+        public async Task<IActionResult> EditGame(Guid id, GameDTO modelDTO)
         {
-            if (id != model.GameId)
-            {
-                return BadRequest();
-            }
+            if (modelDTO == null) return BadRequest("Game cannot be empty");
 
-            _context.Entry(model).State = EntityState.Modified;
+            var quiz = await _context.Quizzes.FindAsync(modelDTO.QuizId);
+
+            var game = await _context.Games.FindAsync(id);
+            if (game == null) return NotFound();
+
+            game.Score = modelDTO.Score;
+            game.QuizId = modelDTO.QuizId;
+            game.Quiz = quiz;
+
+            _context.Entry(game).State = EntityState.Modified;
 
             try
             {
