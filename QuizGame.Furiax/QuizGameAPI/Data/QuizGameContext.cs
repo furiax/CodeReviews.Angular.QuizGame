@@ -7,7 +7,7 @@ namespace QuizGameAPI.Data
     {
         public QuizGameContext(DbContextOptions<QuizGameContext> options) : base(options)
         {
-            
+
         }
         public DbSet<Game> Games { get; set; }
         public DbSet<Question> Questions { get; set; }
@@ -26,7 +26,7 @@ namespace QuizGameAPI.Data
                 .WithMany(qz => qz.Games)
                 .HasForeignKey(g => g.QuizId)
                 .OnDelete(DeleteBehavior.Cascade);
-      
+
         }
     }
 }

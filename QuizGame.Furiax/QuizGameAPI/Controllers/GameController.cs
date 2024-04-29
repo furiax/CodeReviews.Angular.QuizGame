@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QuizGameAPI.Data;
 using QuizGameAPI.Models;
@@ -36,11 +35,12 @@ namespace QuizGameAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Game>> AddGame(GameDTO modelDTO)
         {
-            if(modelDTO == null) return BadRequest("Game is empty");
+            if (modelDTO == null) return BadRequest("Game is empty");
             var quiz = await _context.Quizzes.FindAsync(modelDTO.QuizId);
             if (quiz == null) return BadRequest("quiz does not excist");
 
-            var game = new Game {
+            var game = new Game
+            {
                 Score = modelDTO.Score,
                 QuizId = modelDTO.QuizId
             };

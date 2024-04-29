@@ -7,7 +7,7 @@ namespace QuizGameAPI.Models
         [Key]
         public Guid QuizId { get; set; }
         [Required]
-        public string QuizName { get; set;}
+        public string QuizName { get; set; }
         public ICollection<Question> Questions { get; set; }
         public ICollection<Game> Games { get; set; }
     }

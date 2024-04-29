@@ -34,9 +34,9 @@ namespace QuizGameAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Question>> AddQuestion(QuestionDTO modelDTO)
         {
-            if (modelDTO == null) return BadRequest("Question is empty");   
+            if (modelDTO == null) return BadRequest("Question is empty");
             var quiz = await _context.Quizzes.FindAsync(modelDTO.QuizId);
-            if(quiz == null) return BadRequest("Quiz does not exist");
+            if (quiz == null) return BadRequest("Quiz does not exist");
 
             var question = new Question
             {
