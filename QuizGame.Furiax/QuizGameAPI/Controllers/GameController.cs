@@ -47,6 +47,7 @@ namespace QuizGameAPI.Controllers
 
             var game = new Game
             {
+                PlayerName = modelDTO.PlayerName,
                 Score = modelDTO.Score,
                 QuizId = modelDTO.QuizId
             };
@@ -66,6 +67,7 @@ namespace QuizGameAPI.Controllers
             var game = await _context.Games.FindAsync(id);
             if (game == null) return NotFound();
 
+            game.PlayerName = modelDTO.PlayerName;
             game.Score = modelDTO.Score;
             game.QuizId = modelDTO.QuizId;
             game.Quiz = quiz;
