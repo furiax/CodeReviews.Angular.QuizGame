@@ -7,6 +7,7 @@ namespace QuizGameAPI.Models
     {
         [Key]
         public Guid GameId { get; set; }
+        public string PlayerName { get; set; }
         public int Score { get; set; } = 0;
         [ForeignKey("QuizId")]
         public Guid QuizId { get; set; }
@@ -15,6 +16,7 @@ namespace QuizGameAPI.Models
 
     public class GameDTO
     {
+        public string PlayerName { get; set;}
         public int Score { get; set; }
         public Guid QuizId { get; set; }
     }
