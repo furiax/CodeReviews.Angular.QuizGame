@@ -5,8 +5,6 @@ VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuizGameAPI", "QuizGameAPI\QuizGameAPI.csproj", "{C1AF339C-520E-4FBA-A2D7-5351FBE747EB}"
 EndProject
-Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "QuizGameFront", "QuizGameFront\QuizGameFront.esproj", "{8C3984C2-E64C-413B-9527-FFA8433204AE}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +15,6 @@ Global
 		{C1AF339C-520E-4FBA-A2D7-5351FBE747EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1AF339C-520E-4FBA-A2D7-5351FBE747EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1AF339C-520E-4FBA-A2D7-5351FBE747EB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8C3984C2-E64C-413B-9527-FFA8433204AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8C3984C2-E64C-413B-9527-FFA8433204AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8C3984C2-E64C-413B-9527-FFA8433204AE}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{8C3984C2-E64C-413B-9527-FFA8433204AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8C3984C2-E64C-413B-9527-FFA8433204AE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8C3984C2-E64C-413B-9527-FFA8433204AE}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

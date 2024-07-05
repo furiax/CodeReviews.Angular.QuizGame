@@ -18,13 +18,19 @@ namespace QuizGameAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Game>>> GetGames()
         {
-            return await _context.Games.ToListAsync();
+            var games = await _context.Games
+                .Include (g => g.Quiz)
+                //.ThenInclude(q => q.Questions)
+                .ToListAsync();
+            return games;
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Game>> GetGame(Guid id)
         {
-            var game = await _context.Games.FindAsync(id);
+            var game = await _context.Games
+                .Include (g => g.Quiz)
+                .FirstOrDefaultAsync(g => g.GameId == id);
 
             if (game == null) return NotFound();
 

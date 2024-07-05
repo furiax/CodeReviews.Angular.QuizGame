@@ -6,7 +6,7 @@ namespace QuizGameAPI.Models
     public class Question
     {
         [Key]
-        public Guid QuestionId { get; set; }
+        public Guid QuestionId { get; set; } = Guid.NewGuid();
         [Required]
         public string QuestionToAsk { get; set; }
         [Required]
