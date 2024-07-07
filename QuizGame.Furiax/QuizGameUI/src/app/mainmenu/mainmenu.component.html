@@ -1,5 +1,19 @@
-<p>welcome to this quiz app</p>
-<button>Create new Game</button>
-<button>Leaderboard</button>
-<button>Add new quiz</button>
-<button>Add questions</button>
+<div class="container">
+    <h1>Quiz app</h1>
+    <mat-card class="mainmenu">
+        <mat-card-content>
+        <div>
+            <button mat-stroked-button [routerLink]="['']">New Game</button>
+        </div>
+        <div>
+            <button mat-stroked-button [routerLink]="['']">Leaderbord</button>
+        </div>
+        <div>
+            <button mat-stroked-button [routerLink]="['/newquiz']">Create new quiz</button>
+        </div>
+        <div>
+            <button mat-stroked-button [routerLink]="['']">Manage questions</button>
+        </div>
+        </mat-card-content>
+    </mat-card>
+</div>

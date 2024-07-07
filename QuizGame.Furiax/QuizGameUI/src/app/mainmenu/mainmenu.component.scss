@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+  }
+
+  .mainmenu{
+    
+    margin-top: 20px;
+  }
+
+  button{
+    width: 100%;
+    box-sizing: border-box;
+    margin: 10px;
+  }
