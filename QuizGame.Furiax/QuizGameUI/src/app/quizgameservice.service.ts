@@ -20,4 +20,8 @@ export class QuizgameserviceService {
   addQuiz(quiz: QuizModel): Observable<QuizModel>{
     return this.http.post<QuizModel>(this.apiUrl + '/quiz', quiz, this.httpOptions)
   }
+
+  getAllQuizzes(): Observable<QuizModel[]>{
+    return this.http.get<QuizModel[]>(this.apiUrl + '/quiz');
+  }
 }
